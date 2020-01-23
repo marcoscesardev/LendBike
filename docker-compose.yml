@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    container_name: lendbike-db
+    image: postgres:9.6
+    volumes:
+      - ./tmp/data/postgresql:/postgresql
+      - ./tmp/data/postgresql:/var/lib/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - PG_DATABASE=lendbike
+      - PG_USERNAME=postgres
+      - PG_PASSWORD=secret
+      - PG_HOST=lendbike-db
+
+  web:
+    container_name: lendbike-backend
+    build: .
+    tty: true
+    volumes:
+      - .:/lendbike
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
