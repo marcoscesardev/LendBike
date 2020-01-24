@@ -1,0 +1,15 @@
+pt-BR:
+  auth:
+    form:
+      your_email: Seu email
+      your_password: Sua senha
+
+    attributes:
+      email: Email
+      password: Senha
+
+    messages:
+      wellcome_to_lendbike: Bem vindo ao LendBike
+      without_sign_up: No momento o nosso sistema não permite cadastro de usuários, ainda estamos
+        na fase de testes, em breve teremos muitas novidades. Se você já possui Login, fique à 
+        vontade e aproveite a VERSÃO DE TESTES do LendBike! :)
