@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      station:
+        one: Estação
+        other: Estações
+
+    attributes:
+      station:
+        active: Ativa
+        address: Endereço
+        created_at: 'Criada em'
+        code: Código
+        updated_at: 'Atualizada em'
+        vacancies: 'Vagas'
