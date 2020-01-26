@@ -3,7 +3,7 @@
     <div class="sidebar sidebar-light sidebar-left simplebar" data-simplebar>
       <div class="sidebar-heading sidebar-m-t">Menu</div>
       <ul class="sidebar-menu">
-        <li class="sidebar-menu-item <% if current_page?(root_path) || current_page?(stack_path(:index)) || current_page?(stack_path(:staff)) ||  current_page?(stack_path(:analytics)) %> active<% end %>">
+        <li class="sidebar-menu-item">
           <a class="sidebar-menu-button" href="<%= root_path %>">
             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
             <span class="sidebar-menu-text">Dashboard</span>
@@ -15,7 +15,7 @@
       <div class="sidebar-block p-0">
         <ul class="sidebar-menu" id="components_menu">
           <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="<%= stack_path(:ui_alerts) %>">
+            <a class="sidebar-menu-button" href="#">
               <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">mouse</i>
               <span class="sidebar-menu-text">Example</span>
             </a>
