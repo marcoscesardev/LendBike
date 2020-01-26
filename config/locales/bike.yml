@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      bike:
+        one: Bicicleta
+        other: Bicicletas
+
+    attributes:
+      bike:
+        code: Código
+        id: identificador
+        active: Ativa
+        situation: Situação
+        created_at: 'Criada em'
+        updated_at: 'Atualizada em'
+        situation_list:
+          available: Disponível
+          in_use: Em uso
+          maintenance: Manutenção
