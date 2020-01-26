@@ -22,4 +22,9 @@ module ApplicationHelper
   def object_title(object = resource_class, plural = false)
     I18n.t("activerecord.models.#{object.model_name.i18n_key}.#{plural ? :other : :one}")
   end
+
+  def menu(model, icon)
+    render 'layouts/menu', 
+      { model: model, controller: model.to_s.downcase.pluralize, icon: icon }
+  end
 end
