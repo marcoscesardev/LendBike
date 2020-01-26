@@ -4,7 +4,7 @@
   </div>
 <% end %>
 
-<% if alert %>
+<% flash_message(alert).map do |alert| %>
   <div class="alert alert-dismissible bg-danger text-white border-0 fade show" role="alert">
     <b><%= alert %></b>
   </div>
