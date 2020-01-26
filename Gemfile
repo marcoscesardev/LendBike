@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass'
 gem 'sprockets-rails', '2.3.3'
 
+# form
+gem 'simple_form'
+
 # Authentication and security
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
