@@ -19,10 +19,10 @@
 
         <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
           <div class="mdk-drawer-layout__content page">
-            <%= render 'layouts/flash'%>
-
-            <%# CONTENT  %>
-            <%= yield %>
+            <div class="container-fluid page__heading-container">
+              <%= render 'layouts/flash'%>
+              <%= yield %>
+            </div>
           </div>
           <!-- // END drawer-layout__content -->
 

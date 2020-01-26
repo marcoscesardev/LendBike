@@ -8,7 +8,6 @@ pt-BR:
     attributes:
       bike:
         code: Código
-        id: identificador
         active: Ativa
         situation: Situação
         created_at: 'Criada em'
