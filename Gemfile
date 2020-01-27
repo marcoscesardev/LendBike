@@ -34,7 +34,7 @@ gem 'inherited_resources'
 
 # form
 gem 'simple_form'
-gem 'translate_enum', '~> 0.1', require: 'translate_enum/active_record'
+gem 'translate_enum', require: 'translate_enum/active_record'
 
 # Authentication and security
 gem 'devise'
