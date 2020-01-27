@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_26_182415) do
+ActiveRecord::Schema.define(version: 2020_01_26_231732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 2020_01_26_182415) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lends", force: :cascade do |t|
+    t.bigint "bike_id", null: false
+    t.bigint "user_id", null: false
+    t.string "code", null: false
+    t.string "address", null: false
+    t.integer "distance", default: 0, null: false
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bike_id"], name: "index_lends_on_bike_id"
+    t.index ["user_id"], name: "index_lends_on_user_id"
   end
 
   create_table "stations", force: :cascade do |t|
@@ -48,4 +62,6 @@ ActiveRecord::Schema.define(version: 2020_01_26_182415) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lends", "bikes"
+  add_foreign_key "lends", "users"
 end
