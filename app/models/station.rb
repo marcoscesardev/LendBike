@@ -1,6 +1,13 @@
 class Station < ApplicationRecord
-  validates :vacancies, :code, :address, :name, presence: true
+  has_many :lends
 
-  validates :code, length: { maximum: 10 }, uniqueness: true
+  validates :vacancies, :code, :address, :name, presence: true
+  validates :code, length: { maximum: 15 }, uniqueness: true
   validates :vacancies,  numericality: { greater_than: 0 }
+
+  scope :active, -> { where(active: true) }
+
+  def to_s
+    name
+  end
 end

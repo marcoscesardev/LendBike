@@ -1,7 +1,16 @@
 class Bike < ApplicationRecord
+  has_one :lend
+
   enum situation: [:available, :in_use, :maintenance]
   
   translate_enum :situation
 
   validates :code, presence: true, length: { maximum: 10 }, uniqueness: true
+
+  scope :active, -> { where(active: true) }
+  scope :available, -> { where(situation: 1) }
+
+  def to_s
+    code
+  end
 end
