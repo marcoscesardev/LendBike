@@ -1,11 +1,7 @@
-<div class="field">
-  <%= f.input :code %>
-</div>
+<%= f.input :code %>
 
 <% if f.object.persisted? %>
   <%= f.input :situation, collection: @bike_situations %>
 <% end %>
 
-<div class="field">
-  <%= f.input :active %>
-</div>
+<%= f.input :active %>
