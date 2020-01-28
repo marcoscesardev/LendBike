@@ -1,0 +1,6 @@
+pt-BR:
+  api:
+    errors:
+      messages:
+        invalid_email_or_password: 'Email ou senha inválida.'
+        not_authenticated: 'Não autenticado.'
