@@ -11,13 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_01_26_231732) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bikes", force: :cascade do |t|
     t.string "code", null: false
-    t.integer "situation"
     t.boolean "active", default: true, null: false
+    t.boolean "maintenance", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,16 +26,14 @@ ActiveRecord::Schema.define(version: 2020_01_26_231732) do
   create_table "lends", force: :cascade do |t|
     t.bigint "bike_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "origin_id"
     t.datetime "start_at", null: false
-    t.bigint "destiny_id"
+    t.bigint "station_id"
     t.integer "distance"
     t.datetime "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bike_id"], name: "index_lends_on_bike_id"
-    t.index ["destiny_id"], name: "index_lends_on_destiny_id"
-    t.index ["origin_id"], name: "index_lends_on_origin_id"
+    t.index ["station_id"], name: "index_lends_on_station_id"
     t.index ["user_id"], name: "index_lends_on_user_id"
   end
 
@@ -64,7 +63,6 @@ ActiveRecord::Schema.define(version: 2020_01_26_231732) do
   end
 
   add_foreign_key "lends", "bikes"
-  add_foreign_key "lends", "stations", column: "destiny_id"
-  add_foreign_key "lends", "stations", column: "origin_id"
+  add_foreign_key "lends", "stations"
   add_foreign_key "lends", "users"
 end

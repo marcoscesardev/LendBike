@@ -16,8 +16,7 @@ class LendsController < CrudController
       permit(
         :bike_id,
         :user_id,
-        :origin_id,
-        :destiny_id,
+        :station_id,
         :distance,
         :start_at,
         :end_at

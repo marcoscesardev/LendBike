@@ -28,7 +28,7 @@ User.create!([
 ])
 
 Lend.create!([
-  { bike_id: 1, user_id: 1, origin_id: 1, destiny_id: 2, start_at: Time.current, end_at: Time.current },
-  { bike_id: 1, user_id: 3, origin_id: 2, destiny_id: 3, start_at: Time.current },
-  { bike_id: 2, user_id: 2, origin_id: 3, destiny_id: 2, start_at: Time.current },
+  { bike_id: 1, user_id: 1, station_id: 2, start_at: Time.current, end_at: Time.current },
+  { bike_id: 1, user_id: 3, station_id: 3, start_at: Time.current },
+  { bike_id: 2, user_id: 2, station_id: 2, start_at: Time.current },
 ])

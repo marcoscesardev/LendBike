@@ -3,7 +3,7 @@ pt-BR:
     models:
       lend:
         one: "Empréstimo"
-        other: "Empréstimo"
+        other: "Empréstimos"
     
     errors:
       models:
@@ -11,8 +11,6 @@ pt-BR:
           attributes:
             bike:
               required: 'Obrigatória'
-            destiny:
-              required: 'Obrigatório'
             origin:
               required: 'Obrigatório'
             user:
@@ -22,10 +20,9 @@ pt-BR:
       lend:
         bike: Bicileta
         created_at: Criado em
-        destiny: Destino
         distance: Distância(Metros)
         end_at: Fim em
-        origin: Origem
+        station: Destino
         start_at: Início em
         updated_at: Atualizado em
         user: Usuário
