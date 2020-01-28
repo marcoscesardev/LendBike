@@ -15,6 +15,12 @@ pt-BR:
               required: 'Obrigatório'
             user:
               required: 'Obrigatório'
+        
+          messages:
+            bike_unavailable: 'Esta bicicleta não está disponível'
+            invalid_date: 'Data inválida'
+            invalid_destination: 'A estação de destino deve ser diferente da origem'
+            user_cant_lend: 'O usuário não pode pegar uma bicicleta no momento'
 
     attributes:
       lend:
