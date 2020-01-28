@@ -1,0 +1,31 @@
+pt-BR:
+  activerecord:
+    models:
+      lend:
+        one: "Empréstimo"
+        other: "Empréstimo"
+    
+    errors:
+      models:
+        lend:
+          attributes:
+            bike:
+              required: 'Obrigatória'
+            destiny:
+              required: 'Obrigatório'
+            origin:
+              required: 'Obrigatório'
+            user:
+              required: 'Obrigatório'
+
+    attributes:
+      lend:
+        bike: Bicileta
+        created_at: Criado em
+        destiny: Destino
+        distance: Distância(Metros)
+        end_at: Fim em
+        origin: Origem
+        start_at: Início em
+        updated_at: Atualizado em
+        user: Usuário

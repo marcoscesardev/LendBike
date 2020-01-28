@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_01_26_231732) do
 
   create_table "bikes", force: :cascade do |t|
     t.string "code", null: false
-    t.string "situation", null: false
+    t.integer "situation"
     t.boolean "active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -27,16 +27,14 @@ ActiveRecord::Schema.define(version: 2020_01_26_231732) do
     t.bigint "bike_id", null: false
     t.bigint "user_id", null: false
     t.bigint "origin_id"
-    t.bigint "detiny_id"
-    t.string "code", null: false
-    t.string "address", null: false
-    t.integer "distance", default: 0, null: false
-    t.datetime "start_at"
+    t.datetime "start_at", null: false
+    t.bigint "destiny_id"
+    t.integer "distance"
     t.datetime "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bike_id"], name: "index_lends_on_bike_id"
-    t.index ["detiny_id"], name: "index_lends_on_detiny_id"
+    t.index ["destiny_id"], name: "index_lends_on_destiny_id"
     t.index ["origin_id"], name: "index_lends_on_origin_id"
     t.index ["user_id"], name: "index_lends_on_user_id"
   end
@@ -67,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_01_26_231732) do
   end
 
   add_foreign_key "lends", "bikes"
-  add_foreign_key "lends", "stations", column: "detiny_id"
+  add_foreign_key "lends", "stations", column: "destiny_id"
   add_foreign_key "lends", "stations", column: "origin_id"
   add_foreign_key "lends", "users"
 end

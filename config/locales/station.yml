@@ -11,5 +11,6 @@ pt-BR:
         address: Endereço
         created_at: 'Criada em'
         code: Código
+        name: 'Nome'
         updated_at: 'Atualizada em'
         vacancies: 'Vagas'
