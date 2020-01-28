@@ -16,8 +16,7 @@ module CrudHelper
   end
 
   def create_link
-    link_to raw(t('buttons.new')),
-      new_resource_path(), {class: 'btn btn-lg btn-primary'}
+    link_to raw(t('buttons.new')), new_resource_path, { class: 'btn btn-lg btn-primary' }
   end
 
   def list_attributes(object)
@@ -27,7 +26,6 @@ module CrudHelper
   def form_action_link(action)
     resource.persisted? ? resource_path(params) : collection_path(params)
   end
-
 
   def formatted_attribute(resource, attribute, options = {})
     attribute = real_attribute(attribute)
@@ -40,18 +38,18 @@ module CrudHelper
     else
       value = resource.send(attribute)
       value = value.send(options[:attribute_method]) if options[:attribute_method]
-      
+
       value
     end
   end
 
   def flash_message(flash)
-    return [] if flash.blank? || !self.respond_to?(:resource_class)
+    return [] if flash.blank? || !respond_to?(:resource_class)
     return [flash] if flash.class.to_s == 'String'
 
     flash.map do |attribute, message|
-      "#{localized_attribute(resource_class.new.class, attribute)} " + 
-        "#{ message.is_a?(String) ? message : message.join(', ') }"
+      "#{localized_attribute(resource_class.new.class, attribute)} " +
+        "#{message.is_a?(String) ? message : message.join(', ')}"
     end
   end
 
@@ -65,8 +63,8 @@ module CrudHelper
 
   def value_by_field_type(value)
     klass = value.class
-    
-    case klass.to_s 
+
+    case klass.to_s
     when 'TrueClass'
       "<span class='badge badge-pill badge-success'>#{I18n.t(value)}</span>".html_safe
     when 'FalseClass'

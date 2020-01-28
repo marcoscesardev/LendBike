@@ -4,7 +4,7 @@ class Api::V1::Controller < ActionController::Base
   before_action :authenticate_request!, unless: :validate_request?
 
   protected
-  
+
   def encode(payload)
     payload[:exp] = 7.days.from_now.to_i
 
@@ -12,7 +12,7 @@ class Api::V1::Controller < ActionController::Base
   end
 
   def decode(token)
-    return HashWithIndifferentAccess.new(JWT.decode(token, ENV['SECRET_KEY_BASE'])[0])
+    HashWithIndifferentAccess.new(JWT.decode(token, ENV['SECRET_KEY_BASE'])[0])
   rescue
     nil
   end
@@ -25,27 +25,27 @@ class Api::V1::Controller < ActionController::Base
     if user_id_in_token? && !valid_payload?(auth_token)
       @current_user = User.find(auth_token[:user_id])
     else
-      render json: { 
-        errors: [{ 
+      render json: {
+        errors: [{
           message: I18n.t('api.errors.messages.not_authenticated'),
-          status: 401 
-        }] 
+          status: 401,
+        }],
       }, status: :unauthorized
     end
   rescue JWT::VerificationError, JWT::DecodeError
-    render json: { 
-        errors: [{ 
-          message: I18n.t('api.errors.messages.not_authenticated'),
-          status: 401 
-        }] 
-      }, status: :unauthorized
+    render json: {
+      errors: [{
+        message: I18n.t('api.errors.messages.not_authenticated'),
+        status: 401,
+      }],
+    }, status: :unauthorized
   end
 
   private
 
   def http_token
     @http_token ||= if request.headers['Authorization'].present?
-      request.headers['Authorization'].split(' ').last
+                      request.headers['Authorization'].split(' ').last
     end
   end
 

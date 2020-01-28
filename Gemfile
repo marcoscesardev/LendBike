@@ -33,6 +33,9 @@ gem 'inherited_resources'
 gem 'simple_form'
 gem 'translate_enum', require: 'translate_enum/active_record'
 
+# style guide
+gem 'rubocop-airbnb'
+
 # Authentication and security
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'

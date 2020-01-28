@@ -12,13 +12,13 @@ class CrudController < ApplicationController
   def create
     @object = resource_class.new(object_params)
 
-    if @object.save 
+    if @object.save
       flash[:notice] = I18n.t(
-          'messages.object_successfully_created',
-          object_name: resource_class.model_name.human
-        )
+        'messages.object_successfully_created',
+        object_name: resource_class.model_name.human
+      )
 
-      redirect_to resource_path(@object) 
+      redirect_to resource_path(@object)
     else
       flash[:alert] = @object.errors if @object.errors.present?
 
@@ -28,14 +28,14 @@ class CrudController < ApplicationController
 
   def update
     @object = resource_class.find(params[:id])
-    
+
     if @object.update(object_params)
       flash[:notice] = I18n.t(
-          'messages.object_successfully_updated',
-          object_name: resource_class.model_name.human
-        )
+        'messages.object_successfully_updated',
+        object_name: resource_class.model_name.human
+      )
 
-      redirect_to resource_path(@object) 
+      redirect_to resource_path(@object)
     else
       flash[:alert] = @object.errors if @object.errors.present?
 

@@ -1,6 +1,6 @@
 class LendsController < CrudController
   before_action :load_collections, only: [:new, :create, :edit, :update]
-  
+
   private
 
   def load_collections

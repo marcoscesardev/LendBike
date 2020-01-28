@@ -24,7 +24,6 @@ module ApplicationHelper
   end
 
   def menu(model, icon)
-    render 'layouts/menu', 
-      { model: model, controller: model.to_s.downcase.pluralize, icon: icon }
+    render 'layouts/menu', { model: model, controller: model.to_s.downcase.pluralize, icon: icon }
   end
 end

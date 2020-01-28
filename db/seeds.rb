@@ -24,11 +24,11 @@ User.create!([
   { name: 'Admin', email: 'admin@admin.com', password: '12345678', is_admin: true },
   { name: 'Claudio', email: 'claudio@client.com', password: '12345678' },
   { name: 'Luke', email: 'luke@client.com', password: '12345678' },
-  { name: 'José', email: 'jose@client.com', password: '12345678' }
+  { name: 'José', email: 'jose@client.com', password: '12345678' },
 ])
 
 Lend.create!([
   { bike_id: 1, user_id: 1, origin_id: 1, destiny_id: 2, start_at: Time.current, end_at: Time.current },
   { bike_id: 1, user_id: 3, origin_id: 2, destiny_id: 3, start_at: Time.current },
-  { bike_id: 2, user_id: 2, origin_id: 3, destiny_id: 2, start_at: Time.current }
+  { bike_id: 2, user_id: 2, origin_id: 3, destiny_id: 2, start_at: Time.current },
 ])
