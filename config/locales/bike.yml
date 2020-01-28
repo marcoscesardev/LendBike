@@ -9,10 +9,6 @@ pt-BR:
       bike:
         code: Código
         active: Ativa
-        situation: Situação
         created_at: 'Criada em'
+        maintenance: 'Manutenção'
         updated_at: 'Atualizada em'
-        situation_list:
-          available: Disponível
-          in_use: Em uso
-          maintenance: Manutenção

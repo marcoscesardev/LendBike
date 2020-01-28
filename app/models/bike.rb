@@ -1,5 +1,6 @@
 class Bike < ApplicationRecord
-  has_one :lend
+  has_one :lend, -> { desc }, class_name: 'Lend'
+  has_many :lends
 
   enum situation: { :available => 0, :in_use => 1, :maintenance => 2 }
 

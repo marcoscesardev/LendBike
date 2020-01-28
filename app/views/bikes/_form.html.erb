@@ -1,7 +1,7 @@
 <%= f.input :code %>
 
 <% if f.object.persisted? %>
-  <%= f.input :situation, collection: @bike_situations %>
+  <%= f.input :maintenance %>
 <% end %>
 
 <%= f.input :active %>

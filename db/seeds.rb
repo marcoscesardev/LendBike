@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Bike.create!([
-  { code: 'BIKE001', situation: 1 },
-  { code: 'BIKE002', situation: 1 },
-  { code: 'BIKE003', situation: 1 },
-  { code: 'BIKE004', situation: 1 },
+  { code: 'BIKE001' },
+  { code: 'BIKE002' },
+  { code: 'BIKE003', maintenance: true },
+  { code: 'BIKE004' },
 ])
 
 Station.create!([
