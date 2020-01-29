@@ -4,9 +4,16 @@ class LendsController < CrudController
   private
 
   def load_collections
-    @bikes = Bike.all.active.available
-    @users = User.all.active
-    @stations = Station.all.active
+    @bikes = Bike.active.where.not(id: Bike.active_lend).to_a
+    @users = User.active.to_a
+    @stations = Station.active.to_a
+    
+    # Ensures to bring items that were already registered
+    if action_name != 'new'
+      @bikes = @bikes.push(resource&.bike).uniq.compact
+      @users = @users.push(resource&.user).uniq.compact
+      @stations = @stations.push(resource&.station).uniq.compact
+    end
   end
 
   protected

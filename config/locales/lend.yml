@@ -20,16 +20,22 @@ pt-BR:
             bike_unavailable: 'Esta bicicleta não está disponível'
             invalid_date: 'Data inválida'
             invalid_destination: 'A estação de destino deve ser diferente da origem'
+            lends_active: 'Empréstimos em andamento'
             user_cant_lend: 'O usuário não pode pegar uma bicicleta no momento'
             unavailable_vacancies: 'Não há vagas nesta estação'
+            vacancies_in_user: 'Vagas em uso'
 
     attributes:
       lend:
-        bike: Bicileta
-        created_at: Criado em
-        distance: Distância(Metros)
-        end_at: Fim em
-        station: Destino
-        start_at: Início em
-        updated_at: Atualizado em
-        user: Usuário
+        bike: 'Bicicleta'
+        bike_id: 'Bicicleta'
+        created_at: 'Criado em'
+        current: 'Atual'
+        distance: 'Distância(Metros)'
+        end_at: 'Fim em'
+        station: 'Destino'
+        station_id: 'Destino'
+        start_at: 'Início em'
+        updated_at: 'Atualizado em'
+        user: 'Usuário'
+        user_id: 'Usuário'

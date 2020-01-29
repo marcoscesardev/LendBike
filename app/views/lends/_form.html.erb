@@ -1,6 +1,17 @@
-<%= f.input :bike_id, collection: @bikes %>
-<%= f.input :user_id, collection: @users %>
-<%= f.input :station_id, collection: @stations %>
-<%= f.input :distance %>
-<%= f.input :start_at %>
-<%= f.input :end_at %>
+<% if f.object.persisted? %>
+  <% %w(bike user start_at).each do |attribute| %>
+    <b><%= localized_attribute(f.object.class, attribute) %>:</b>
+    <%= value_by_field_type(formatted_attribute(f.object, attribute)) %>
+    <br>
+  <% end %>
+
+  <hr>
+
+  <%= f.input :station_id, collection: @stations %>
+  <%= f.input :distance %>
+  <%= f.input :end_at %>
+<% else %>
+  <%= f.input :bike_id, collection: @bikes %>
+  <%= f.input :user_id, collection: @users %>
+  <%= f.input :start_at %>
+<% end %>

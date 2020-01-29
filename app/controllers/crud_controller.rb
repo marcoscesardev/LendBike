@@ -1,6 +1,8 @@
 class CrudController < ApplicationController
   inherit_resources
 
+  helper_method :resource_name, :resource_class, :resource
+
   def index
     build_resource
 
@@ -40,6 +42,22 @@ class CrudController < ApplicationController
       flash[:alert] = @object.errors if @object.errors.present?
 
       render :edit
+    end
+  end
+
+  def resource_name
+    controller_name.singularize
+  end
+
+  def resource_class
+    resource_name.capitalize.constantize
+  end
+
+  def resource
+    if instance_variable_defined?(:"@#{resource_name}")
+      instance_variable_get(:"@#{resource_name}")
+    else
+      instance_variable_set("@#{resource_name}", resource_class.find_by(id: params[:id]))
     end
   end
 
