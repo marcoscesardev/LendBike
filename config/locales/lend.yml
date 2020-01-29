@@ -21,6 +21,7 @@ pt-BR:
             invalid_date: 'Data inválida'
             invalid_destination: 'A estação de destino deve ser diferente da origem'
             user_cant_lend: 'O usuário não pode pegar uma bicicleta no momento'
+            unavailable_vacancies: 'Não há vagas nesta estação'
 
     attributes:
       lend:

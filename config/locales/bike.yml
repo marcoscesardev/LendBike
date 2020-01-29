@@ -12,3 +12,8 @@ pt-BR:
         created_at: 'Criada em'
         maintenance: 'Manutenção'
         updated_at: 'Atualizada em'
+
+    messages:
+      bike:
+        error:
+          lend_active: 'Não é possível alterar uma bicicleta em uso'

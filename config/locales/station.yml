@@ -2,15 +2,20 @@ pt-BR:
   activerecord:
     models:
       station:
-        one: Estação
-        other: Estações
+        one: 'Estação'
+        other: 'Estações'
 
     attributes:
       station:
-        active: Ativa
-        address: Endereço
+        active: 'Ativa'
+        address: 'Endereço'
         created_at: 'Criada em'
-        code: Código
+        code: 'Código'
         name: 'Nome'
         updated_at: 'Atualizada em'
         vacancies: 'Vagas'
+    
+    messages:
+      station:
+        error:
+          invalid_vacancies: 'Quantidade de vagas inválidas pois existe(m) %{amount} bicicleta(s) alocadas'

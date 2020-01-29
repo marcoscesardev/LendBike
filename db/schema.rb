@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_01_26_231732) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_01_26_231732) do
     t.bigint "bike_id", null: false
     t.bigint "user_id", null: false
     t.datetime "start_at", null: false
+    t.boolean "current", default: true, null: false
     t.bigint "station_id"
     t.integer "distance"
     t.datetime "end_at"

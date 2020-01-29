@@ -15,8 +15,8 @@ Bike.create!([
 
 Station.create!([
   { name: 'Garagem', address: 'Prefeitura de Springfield', code: 'GARAGEMPS001', vacancies: 1000 },
-  { name: 'Central', address: 'R. Antônio Milena, 1177-1105 - Campos Elísios', code: 'CENTRO002', vacancies: 5 },
-  { name: 'Zona Sul I', address: 'Av. Dr. Luís Augusto - Jardim Joquei Clube, 14078-600', code: 'ZONASULI003', vacancies: 5 },
+  { name: 'Central', address: 'R. Antanio Milena, 1177-1105 - Campos Elisios', code: 'CENTRO002', vacancies: 5 },
+  { name: 'Zona Sul I', address: 'Av. Dr. Luis Augusto - Jardim Joquei Clube, 14078-600', code: 'ZONASULI003', vacancies: 5 },
   { name: 'Zona Sul II', address: 'R. Dois, 635-619 - Gomes, 14781-348', code: 'ZONASULI004', vacancies: 2 },
 ])
 
@@ -24,11 +24,11 @@ User.create!([
   { name: 'Admin', email: 'admin@admin.com', password: '12345678', is_admin: true },
   { name: 'Claudio', email: 'claudio@client.com', password: '12345678' },
   { name: 'Luke', email: 'luke@client.com', password: '12345678' },
-  { name: 'José', email: 'jose@client.com', password: '12345678' },
+  { name: 'Jose', email: 'jose@client.com', password: '12345678' },
 ])
 
 Lend.create!([
-  { bike_id: 1, user_id: 1, station_id: 2, start_at: Time.current, end_at: Time.current },
-  { bike_id: 1, user_id: 3, station_id: 3, start_at: Time.current },
-  { bike_id: 2, user_id: 2, station_id: 2, start_at: Time.current },
+  { bike_id: 1, user_id: 1, start_at: Time.current },
+  { bike_id: 1, user_id: 3, start_at: Time.current },
+  { bike_id: 2, user_id: 2, start_at: Time.current },
 ])
