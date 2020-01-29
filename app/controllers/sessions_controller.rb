@@ -8,17 +8,6 @@ class SessionsController < Devise::SessionsController
     'auth'
   end
 
-  def create
-    unless current_user&.is_admin
-      flash[:alert] = I18n.t('devise.failure.login_only_for_admin')
-      render :new
-
-      return
-    end
-
-    super
-  end
-
   private
 
   def devise_params

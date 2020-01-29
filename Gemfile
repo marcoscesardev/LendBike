@@ -38,6 +38,7 @@ gem 'rubocop-airbnb'
 
 # Authentication and security
 gem 'devise'
+gem 'devise_custom_authenticatable'
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
