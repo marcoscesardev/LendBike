@@ -1,5 +1,90 @@
 <div class="container-fluid page__heading-container">
-  <div class="page__heading">
-    <h1 class="m-0">Home</h1>
+  <div class="page__heading d-flex align-items-center">
+    <div class="flex">
+      <h1 class="m-0">Dashboard</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row card-group-row">
+  <div class="col-lg-4 col-md-6 card-group-row__col">
+    <div class="card card-group-row__card card-body card-body-x-lg flex-row align-items-center">
+      <div class="flex">
+        <div class="card-header__title text-muted mb-2"><%= object_title(Bike, true) %></div>
+        <div class="text-amount"><%= Bike.active.size %></div>
+      </div>
+      <div><i class="material-icons icon-muted icon-40pt ml-3">directions_bike</i></div>
+    </div>  
+  </div>
+  <div class="col-lg-4 col-md-6 card-group-row__col">
+    <div class="card card-group-row__card card-body card-body-x-lg flex-row align-items-center">
+      <div class="flex">
+        <div class="card-header__title text-muted mb-2"><%= object_title(Station, true) %></div>
+        <div class="text-amount"><%= Station.active.size %></div>
+      </div>
+      <div><i class="material-icons icon-muted icon-40pt ml-3">gps_fixed</i></div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-12 card-group-row__col">
+    <div class="card card-group-row__card card-body card-body-x-lg flex-row align-items-center">
+      <div class="flex">
+        <div class="card-header__title text-muted mb-2"><%= object_title(User, true) %></div>
+        <div class="text-amount"><%= User.active.size %></div>
+      </div>
+      <div><i class="material-icons icon-muted icon-40pt ml-3">perm_identity</i></div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card-group">
+      <div class="card card-body text-center">
+        <div class="mb-1"><i class="material-icons icon-muted icon-40pt">call_made</i></div>
+        <div class="text-amount"><%= Lend.active.size %></div><div class="card-header__title mb-2">
+          <%= I18n.t('activerecord.errors.models.lend.messages.lends_active') %>
+        </div>
+      </div>
+      <div class="card card-body text-center">
+        <div class="mb-1"><i class="material-icons icon-muted icon-40pt">transfer_within_a_station</i></div>
+        <div class="text-amount"><%= Lend.all.size %></div>
+        <div class="card-header__title  mb-2"><%= object_title(Lend, true) %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg">
+    <div class="card">
+      <div class="card-header card-header-large bg-white">
+        <h4 class="card-header__title">
+          <%= I18n.t('activerecord.errors.models.lend.messages.vacancies_in_user') %>
+        </h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled list-skills">
+          <% @lends_vacancies.each do |lend| %>
+            <li>
+              <div><%= "#{lend[:station]} (#{lend[:lend_size]}/#{lend[:station_vacancies]})" %></div>
+              <div class="flex">
+                <div class="progress">
+                  <div 
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: <%= lend[:vacancies_percentage] %>%;"
+                  ></div>
+                </div>
+              </div>
+              <div class="text-dark-gray"><strong><%= lend[:vacancies_percentage] %>%</strong></div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="card-footer text-center border-0">
+        <a href="#">
+          <span class="text-muted">View All</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
