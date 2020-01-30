@@ -15,6 +15,10 @@ module CrudHelper
     end
   end
 
+  def list_attributes_show
+    resource.attributes
+  end
+
   def create_link
     link_to raw(t('buttons.new')), new_resource_path, { class: 'btn btn-lg btn-primary' }
   end
