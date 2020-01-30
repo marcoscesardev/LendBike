@@ -1,4 +1,4 @@
-class Api::V1::StationResource < JSONAPI::Resource
+class Api::V1::LendResource < JSONAPI::Resource
   attributes :code, :name, :address, :vacancies, :active, :occupied_vacancies, :bikes
   
   def occupied_vacancies

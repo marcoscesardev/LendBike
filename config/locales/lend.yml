@@ -17,12 +17,15 @@ pt-BR:
               required: 'Obrigatório'
         
           messages:
+            bike_code_invalid: 'Código da bicicleta é inválido'
             bike_unavailable: 'Esta bicicleta não está disponível'
             invalid_date: 'Data inválida'
             invalid_destination: 'A estação de destino deve ser diferente da origem'
             lends_active: 'Empréstimos em andamento'
-            user_cant_lend: 'O usuário não pode pegar uma bicicleta no momento'
+            station_code_invalid: 'Código da estação é inválido'
             unavailable_vacancies: 'Não há vagas nesta estação'
+            user_cant_lend: 'O usuário não pode pegar uma bicicleta no momento'
+            user_without_lend_active: 'O usuário não possui empréstimo em andamento'
             vacancies_in_user: 'Vagas em uso'
 
     attributes:
