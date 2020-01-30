@@ -7,6 +7,6 @@ class HomeController < ApplicationController
           lend_size: lend.size,
           station_vacancies: station.vacancies
         }
-      end.sort_by{ |station| station[:vacancies_percentage] }.first(5)
+      end.sort_by{ |station| station[:vacancies_percentage] }.reverse.first(5)
   end
 end

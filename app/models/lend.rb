@@ -51,7 +51,7 @@ class Lend < ApplicationRecord
   end
 
   def user_without_active_lend
-    if (bike&.lend.present? && bike&.lend&.id != id) || !user&.active
+    if (user&.lend.present? && user&.lend&.id != id) || !user&.active
       errors.add(:base, I18n.t('activerecord.errors.models.lend.messages.user_cant_lend'))
 
       false

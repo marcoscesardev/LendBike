@@ -1,6 +1,8 @@
 class Api::V1::Controller < ActionController::Base
   include JSONAPI::ActsAsResourceController
   respond_to :json
+  
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_request!, unless: :validate_request?
 
   protected

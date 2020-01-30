@@ -9,8 +9,8 @@ pt-BR:
       station:
         active: 'Ativa'
         address: 'Endereço'
-        created_at: 'Criada em'
         code: 'Código'
+        created_at: 'Criada em'
         name: 'Nome'
         updated_at: 'Atualizada em'
         vacancies: 'Vagas'
