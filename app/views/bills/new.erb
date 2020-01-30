@@ -1,0 +1,17 @@
+<div class="page__heading">
+  <h1><%= object_title(Bill) %></h1>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <%= simple_form_for :report, url: generate_bills_path do |f| %>
+      <%= f.input :user_id, collection: @users, label: label_name('user') %>
+      <%= f.input :month, collection: @months, label: label_name('month') %>
+      <%= f.input :year, collection: @years, label: label_name('year') %>
+
+      <div class="clearfix form-actions">
+        <%= f.button :submit, I18n.t('buttons.generate'), class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

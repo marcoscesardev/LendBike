@@ -1,0 +1,10 @@
+<div class="page__heading">
+  <h1>
+    <%= object_title(Bill) %>
+    <span class="text-muted">
+      <%= " #{@data[:user]} - #{@data[:reference]}"%>
+    </span>
+  </h1>
+</div>
+
+<%= render 'crud/list' %>

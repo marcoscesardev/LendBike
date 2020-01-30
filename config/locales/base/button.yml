@@ -1,6 +1,7 @@
 pt-BR:
   buttons:
     edit: Editar
+    generate: Gerar
     log_in: Entrar
     log_out: Sair
     new: Novo

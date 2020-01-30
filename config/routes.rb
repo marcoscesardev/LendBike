@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :bikes
-  resources :stations
-  resources :lends
+  resources :bikes, except: [:destroy]
+  resources :stations, except: [:destroy]
+  resources :lends, except: [:destroy]
+  
+  resources :bills, only: [:index, :show, :new] do
+    post :generate, on: :collection
+  end
 
   devise_for :users, :controllers => { :sessions => "sessions" }
 

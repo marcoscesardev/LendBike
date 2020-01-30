@@ -23,10 +23,6 @@ module CrudHelper
     object.new.attributes.keys
   end
 
-  def form_action_link(action)
-    resource.persisted? ? resource_path(params) : collection_path(params)
-  end
-
   def formatted_attribute(resource, attribute, options = {})
     attribute = real_attribute(attribute)
     human_attr = attribute.to_s + '_humanize'
@@ -44,12 +40,17 @@ module CrudHelper
   end
 
   def flash_message(flash)
-    return [] if flash.blank? || !respond_to?(:resource_class)
-    return [flash] if flash.class.to_s == 'String'
-
+    return [flash] if flash&.class.to_s == 'String'
+    return [] if flash.blank?
+    
+    
     flash.map do |attribute, message|
-      "#{localized_attribute(resource_class.new.class, attribute)} " +
-        "#{message.is_a?(String) ? message : message.join(', ')}"
+      if respond_to?(:resource_class)
+        "#{localized_attribute(resource_class.new.class, attribute)} " +
+          "#{message.is_a?(String) ? message : message.join(', ')}"
+      else
+        attribute
+      end
     end
   end
 

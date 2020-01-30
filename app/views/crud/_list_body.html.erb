@@ -1,5 +1,5 @@
 <% collection.each do |object| %>
-  <tr id="<%= dom_id object %>">
+  <tr>
     <% list_attributes(resource_class).each do |attribute| %>
       <td>
         <% attribute = formatted_attribute(object, attribute) %>

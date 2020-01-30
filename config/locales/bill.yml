@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    models:
+      bill:
+        one: 'Fatura'
+        other: 'Faturas'
+
+    attributes:
+      bill:
+        bike: 'Bicicleta'
+        destiny: 'Destino'
+        distance: 'Distância'
+        end_at: 'Fim'
+        month: 'Mês'
+        origin: 'Origem'
+        start_at: 'Início'
+        total_value: 'Valor total'
+        user: 'Usuário'
+        value: 'Valor'
+        year: 'Ano'
+
+    messages:
+      bill:
+        error:
+          missing_params: 'Parâmetros obrigatórios não preenchidos'

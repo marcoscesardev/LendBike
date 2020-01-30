@@ -1,0 +1,13 @@
+<% @data[:bills].each do |row| %>
+  <tr>
+    <% %w(bike origin destiny distance start_at end_at value).map do |attribute| %>
+      <td><%= row[attribute.to_sym] %></td>
+    <% end %>
+  </tr>
+<% end %>
+
+<h5>
+  <span class="text-muted"><%= I18n.t('activerecord.attributes.bill.total_value') %>:</span>
+  <%= number_to_currency(@data[:total_value]) %>
+</h5>
+<hr>

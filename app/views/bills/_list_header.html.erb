@@ -1,0 +1,5 @@
+<tr>
+  <% %w(bike origin destiny distance start_at end_at value).each do |attribute| %>
+    <th><%= I18n.t('activerecord.attributes.bill.' + attribute) %></th>
+  <% end %>
+</tr>

@@ -12,12 +12,16 @@ class Lend < ApplicationRecord
            :available_vacancies
 
   scope :current, -> { where("station_id IS NOT NULL AND current IS TRUE") }
+  scope :not_active, -> { where("station_id IS NOT NULL AND end_at IS NOT NULL") }
   scope :active, -> { where(end_at: nil) }
   scope :from_bike, -> bike { where(bike_id: bike) }
+  scope :from_user, -> user { where(user_id: user) }
+  scope :from_month, -> month { where("DATE_PART('month', created_at) = ?", month) }
+  scope :from_year, -> year { where("DATE_PART('year', created_at) = ?", year) }
   scope :with_id_less_than, -> id { where("id < ?", id) }
 
-  def last_lends
-    Lend.from_bike(bike).with_id_less_than(id).last
+  def last_lend
+    Lend.order(:start_at).from_bike(bike).with_id_less_than(id).last
   end
 
   private
@@ -33,7 +37,7 @@ class Lend < ApplicationRecord
   end
 
   def change_current_lend
-    last_lends&.update_attribute(:current, false) if station.present?
+    last_lend&.update_attribute(:current, false) if station.present?
   end
 
   def bike_available
@@ -67,7 +71,7 @@ class Lend < ApplicationRecord
   end
 
   def destination_other_than_origin
-    if station && last_lends&.station == station
+    if station && last_lend&.station == station
       errors.add(:base, I18n.t('activerecord.errors.models.lend.messages.invalid_destination'))
 
       false
