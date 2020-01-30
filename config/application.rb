@@ -11,6 +11,11 @@ module LendBike
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # Set timezone
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :local
+    config.active_record.time_zone_aware_attributes = false
+
     config.responders.flash_keys = [:notice, :alert]
 
     # Include helpers from current controller only

@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :bikes, except: [:destroy]
   resources :stations, except: [:destroy]
   resources :lends, except: [:destroy]
-  # resources :users, except: [:destroy]
+  
+  scope "/admin" do
+    resources :users, except: [:destroy]
+  end
 
   resources :bills, only: [:index, :show, :new] do
     post :generate, on: :collection
