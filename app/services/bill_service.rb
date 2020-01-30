@@ -1,6 +1,4 @@
 class BillService
-  CURRENT_VALUE = ENV['LEND_VALUE'] || 0.20
-
   def self.generate(params)
     user_id, month, year = params.values
     total_value = 0
@@ -29,8 +27,9 @@ class BillService
   end
 
   def self.calc_value(start_at, end_at)
+    lend_value = ENV['LEND_VALUE'].present? ? ENV['LEND_VALUE'].to_f : 0.20
     minutes = ((end_at - start_at) / 1.minutes).to_i
-
-    [(((minutes - 60) / 5).to_i * CURRENT_VALUE), 0].max
+    
+    [(((minutes - 60) / 5).to_i * lend_value), 0].max
   end
 end
