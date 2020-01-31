@@ -24,6 +24,10 @@ Rails.application.routes.draw do
       jsonapi_resources :stations, only: [:index, :show]
     end
   end
+  
+  # API SMART DOCUMENTATION
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
 
   root to: 'home#index'
 end

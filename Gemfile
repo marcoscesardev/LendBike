@@ -21,6 +21,7 @@ gem 'dotenv-rails', '~> 2.6'
 gem 'jsonapi-resources'
 gem 'jwt', '~> 2.1'
 gem 'fast_jsonapi', git: "https://github.com/Netflix/fast_jsonapi", branch: "dev"
+gem 'rswag'
 
 # Backend
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -40,13 +41,11 @@ gem 'rubocop-airbnb'
 gem 'devise'
 gem 'devise_custom_authenticatable'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rswag-api'
+gem 'rswag-ui'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
-
-group :development, :test do
+group :development do
+  gem 'rspec-core'
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8.0'
   gem 'faker', '~> 1.9'
@@ -55,14 +54,3 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
-end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
