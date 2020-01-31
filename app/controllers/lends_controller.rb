@@ -4,7 +4,7 @@ class LendsController < CrudController
   private
 
   def load_collections
-    @bikes = Bike.active.where.not(id: Bike.active_lend).to_a
+    @bikes = Bike.active.not_in_maintenance.where.not(id: Bike.active_lend).to_a
     @users = User.active.to_a
     @stations = Station.active.to_a
 

@@ -7,6 +7,7 @@ class Bike < ApplicationRecord
   validate :check_lend_active
 
   scope :active, -> { where(active: true) }
+  scope :not_in_maintenance, -> { where(maintenance: false) }
   scope :active_lend, -> { joins(:lends).where("lends.station_id IS NULL") }
 
   def to_s
