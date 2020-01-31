@@ -2,6 +2,10 @@
 
 Este é um sistema para gerenciar o compartilhamento de bicicletas, com o sistema administrativo e API que alimentará o nosso aplicativo.
 
+## Links ##
+- [Administration WebPage - lendbike.tk](http://lendbike.tk/)
+- [Swagger Documentation](http://lendbike.tk/api-docs)
+
 ## Modo Uso ##
 
 ### Início Rápido ###

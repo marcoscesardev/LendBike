@@ -28,7 +28,5 @@ fi
 bundle exec rake db:seed
 >&2 echo "=========== DATABASE SEEDED"
 
-# bundle exec rails s -p 3000 -b '0.0.0.0'
-
->&2 echo "=========== ALL DONE"
-sleep infinity
+>&2 echo "=========== localhost:3000"
+bundle exec rails s -p 3000 -b '0.0.0.0'
