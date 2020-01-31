@@ -9,7 +9,7 @@ class Api::V1::LendsController < Api::V1::Controller
       bike_id: bike&.id,
       start_at: Time.current
     )
-    
+
     render(
       status: 200,
       json: { lend: lend.attributes }
@@ -20,9 +20,9 @@ class Api::V1::LendsController < Api::V1::Controller
       errors: [
         {
           message: msg.to_s,
-          status: 403
-        }
-      ]
+          status: 403,
+        },
+      ],
     }
   end
 
@@ -40,7 +40,7 @@ class Api::V1::LendsController < Api::V1::Controller
       end_at: Time.current,
       station_id: station.id
     )
-    
+
     render(
       status: 200,
       json: { lend: lend.attributes }
@@ -51,9 +51,9 @@ class Api::V1::LendsController < Api::V1::Controller
       errors: [
         {
           message: msg.to_s,
-          status: 403
-        }
-      ]
+          status: 403,
+        },
+      ],
     }
   end
 end

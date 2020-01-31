@@ -46,11 +46,10 @@ module CrudHelper
   def flash_message(flash)
     return [flash] if flash&.class.to_s == 'String'
     return [] if flash.blank?
-    
-    
+
     flash.map do |attribute, message|
       if respond_to?(:resource_class)
-        "#{localized_attribute(resource_class.new.class, attribute)} " +
+        "#{localized_attribute(resource_class.new.class, attribute)} " \
           "#{message.is_a?(String) ? message : message.join(', ')}"
       else
         attribute

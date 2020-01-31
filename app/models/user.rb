@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :custom_authenticatable, :database_authenticatable, :registerable, :recoverable,
-    :rememberable, :validatable
+         :rememberable, :validatable
 
   has_one :lend, -> { active }, class_name: 'Lend'
 
@@ -11,8 +11,8 @@ class User < ApplicationRecord
   def to_s
     name
   end
-  
+
   def valid_for_custom_authentication?(password)
-    self.is_admin
+    is_admin && active
   end
 end

@@ -7,7 +7,7 @@ class Api::V1::BillsController < Api::V1::Controller
     data = BillService.generate({
       user: current_user.id,
       month: params["month"],
-      year: params["year"]
+      year: params["year"],
     })
 
     render(
@@ -20,9 +20,9 @@ class Api::V1::BillsController < Api::V1::Controller
       errors: [
         {
           message: msg.to_s,
-          status: 403
-        }
-      ]
+          status: 403,
+        },
+      ],
     }
   end
 end

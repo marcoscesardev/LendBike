@@ -22,6 +22,6 @@ class BillsController < ApplicationController
   def load_params
     @users = User.all
     @months = (1..12)
-    @years = (Lend.first.created_at.year ..Date.current.year)
+    @years = (Lend.first.created_at.year..Date.current.year)
   end
 end

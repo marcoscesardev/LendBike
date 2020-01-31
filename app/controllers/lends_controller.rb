@@ -7,7 +7,7 @@ class LendsController < CrudController
     @bikes = Bike.active.where.not(id: Bike.active_lend).to_a
     @users = User.active.to_a
     @stations = Station.active.to_a
-    
+
     # Ensures to bring items that were already registered
     if action_name != 'new'
       @bikes = @bikes.push(resource&.bike).uniq.compact

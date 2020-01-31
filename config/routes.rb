@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :bikes, except: [:destroy]
   resources :stations, except: [:destroy]
   resources :lends, except: [:destroy]
-  
+
   scope "/admin" do
     resources :users, except: [:destroy]
   end
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       jsonapi_resources :stations, only: [:index, :show]
     end
   end
-  
+
   # API SMART DOCUMENTATION
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
