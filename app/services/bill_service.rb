@@ -20,7 +20,7 @@ class BillService
 
     {
       bills: bills,
-      total_value: total_value,
+      total_value: total_value.round(2),
       user: User.find(user_id).to_s,
       reference: I18n.l(Date.new(year.to_i, month.to_i, 1), format: :competence),
     }
