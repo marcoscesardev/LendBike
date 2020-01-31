@@ -6,29 +6,50 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Bike.create!([
-  { code: 'BIKE001' },
-  { code: 'BIKE002' },
-  { code: 'BIKE003', maintenance: true },
-  { code: 'BIKE004' },
-])
 
-Station.create!([
-  { name: 'Garagem', address: 'Prefeitura de Springfield', code: 'GARAGEMPS001', vacancies: 1000 },
-  { name: 'Central', address: 'R. Antanio Milena, 1177-1105 - Campos Elisios', code: 'CENTRO002', vacancies: 5 },
-  { name: 'Zona Sul I', address: 'Av. Dr. Luis Augusto - Jardim Joquei Clube, 14078-600', code: 'ZONASULI003', vacancies: 5 },
-  { name: 'Zona Sul II', address: 'R. Dois, 635-619 - Gomes, 14781-348', code: 'ZONASULI004', vacancies: 2 },
-])
+bikes = 
+  25.times.map do
+    { code: Faker::Code.unique.asin, maintenance: [false, false, true, false].sample }
+  end
 
-User.create!([
-  { name: 'Admin', email: 'admin@admin.com', password: '12345678', is_admin: true },
-  { name: 'Claudio', email: 'claudio@client.com', password: '12345678' },
-  { name: 'Luke', email: 'luke@client.com', password: '12345678' },
-  { name: 'Jose', email: 'jose@client.com', password: '12345678' },
-])
+Bike.create!(bikes)
 
-Lend.create!([
-  { bike_id: 1, user_id: 1, start_at: Time.current },
-  { bike_id: 1, user_id: 3, start_at: Time.current },
-  { bike_id: 2, user_id: 2, start_at: Time.current },
-])
+stations = 
+  30.times.map do
+    { 
+      name: Faker::Artist.unique.name,
+      address: Faker::Address.unique.full_address,
+      code: Faker::Code.unique.asin,
+      vacancies: (2..10).to_a.sample
+    }
+  end
+
+Station.create!(stations)
+
+users = 
+  14.times.map do
+    { 
+      name: Faker::TvShows::HowIMetYourMother.unique.character,
+      email: Faker::Internet.email, 
+      password: '12345678'
+    }
+  end.push(
+    { name: 'Admin', email: 'admin@admin.com', password: 'admin123', is_admin: true }
+  )
+
+User.create!(users)
+
+500.times.map do 
+  begin
+    Lend.create!(
+      bike_id: (1..25).to_a.sample,
+      user_id: (1..15).to_a.sample,
+      start_at: Time.current,
+      end_at: Time.current + (1..2000).to_a.sample.minutes,
+      distance: (1..2000).to_a.sample,
+      station_id: (1..30).to_a.sample
+    )
+  rescue
+    next
+  end
+end
